@@ -5,6 +5,6 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class UserDetailsSubmittedEvent extends Event {
+public class UserDetailsSubmitted extends Event {
     private final String userId;
 }

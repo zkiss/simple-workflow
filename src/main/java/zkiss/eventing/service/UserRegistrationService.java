@@ -2,7 +2,7 @@ package zkiss.eventing.service;
 
 import com.google.common.eventbus.EventBus;
 import lombok.Builder;
-import zkiss.eventing.message.UserDetailsSubmittedEvent;
+import zkiss.eventing.message.UserDetailsSubmitted;
 import zkiss.eventing.workflow.ApprovedUserRegistrationWorkflow;
 
 @Builder
@@ -19,7 +19,7 @@ public class UserRegistrationService {
                 .build();
         repository.save(user);
 
-        UserDetailsSubmittedEvent event = new UserDetailsSubmittedEvent(user.getId());
+        UserDetailsSubmitted event = new UserDetailsSubmitted(user.getId());
         workflow.start(event);
 
         eventBus.post(event);

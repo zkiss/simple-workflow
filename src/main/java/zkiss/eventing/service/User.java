@@ -12,7 +12,7 @@ public class User {
 
     private String email;
     private String phone;
-
+    private Status status;
 
     @Builder
     public User(String userName, String email, String phone) {
@@ -20,6 +20,25 @@ public class User {
         this.userName = userName;
         this.email = email;
         this.phone = phone;
+        this.status = Status.REGISTERED;
     }
 
+    public void reject() {
+        status = Status.REJECTED;
+    }
+
+    public void accept() {
+        status = Status.ACCEPTED;
+    }
+
+    public void activate() {
+        status = Status.ACTIVE;
+    }
+
+    private enum Status {
+        REGISTERED,
+        REJECTED,
+        ACCEPTED,
+        ACTIVE
+    }
 }

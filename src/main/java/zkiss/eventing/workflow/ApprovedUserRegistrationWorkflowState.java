@@ -4,7 +4,7 @@ package zkiss.eventing.workflow;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import zkiss.eventing.message.UserDetailsSubmittedEvent;
+import zkiss.eventing.message.UserDetailsSubmitted;
 
 import java.time.Instant;
 
@@ -15,10 +15,7 @@ public class ApprovedUserRegistrationWorkflowState implements WorkflowState {
     private final String userId;
     private final Instant startedAt;
 
-    private boolean userConfirmationSent;
-    private boolean adminRequestSent;
-
-    public ApprovedUserRegistrationWorkflowState(UserDetailsSubmittedEvent firstEvent) {
+    public ApprovedUserRegistrationWorkflowState(UserDetailsSubmitted firstEvent) {
         this(
                 firstEvent.getCorrelationId(),
                 firstEvent.getUserId(),
@@ -26,11 +23,4 @@ public class ApprovedUserRegistrationWorkflowState implements WorkflowState {
         );
     }
 
-    public void userConfirmationSent() {
-        this.userConfirmationSent = true;
-    }
-
-    public void adminRequestSent() {
-        this.adminRequestSent = true;
-    }
 }
