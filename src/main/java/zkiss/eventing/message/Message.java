@@ -2,6 +2,7 @@ package zkiss.eventing.message;
 
 
 import lombok.Getter;
+import lombok.ToString;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -9,6 +10,7 @@ import java.util.UUID;
 import static java.util.Objects.requireNonNull;
 
 @Getter
+@ToString
 public abstract class Message {
     private final String id;
     private final String causationId;
