@@ -1,11 +1,14 @@
 package zkiss.eventing.message;
 
 
+import lombok.Getter;
+
 import java.time.Instant;
 import java.util.UUID;
 
 import static java.util.Objects.requireNonNull;
 
+@Getter
 public abstract class Message {
     private final String id;
     private final String causationId;
@@ -27,19 +30,4 @@ public abstract class Message {
         this.createdAt = Instant.now();
     }
 
-    public String getId() {
-        return id;
-    }
-
-    public String getCausationId() {
-        return causationId;
-    }
-
-    public String getCorrelationId() {
-        return correlationId;
-    }
-
-    public Instant getCreatedAt() {
-        return createdAt;
-    }
 }

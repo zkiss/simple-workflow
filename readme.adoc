@@ -1,0 +1,15 @@
+= Simple Workflow System
+
+Demonstrates a simple way to implement workflows based on events.
+
+== User registration workflow
+
+. User details are persisted
+. Send email to confirm receipt
+. Send email for admin to approve
+. Manual user approval by admin
+.. If approved
+... Send email to user: password setup
+... Update user status to ACTIVE when password set up
+.. If rejected
+... Send email to user: rejected
